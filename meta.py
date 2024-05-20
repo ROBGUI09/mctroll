@@ -3,12 +3,6 @@ import glob
 
 ipa = glob.glob('*.ipa')[0]
 
-cmd = ['docker','run',"--rm",'-e',f'filename={str(ipa)}','-v','/tmp/ipas/:/home/work/files','ipax:latest']
+cmd = ['pyipa',"-o","meta.json",ipa]
 
-print(cmd)
-
-proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
-(out, err) = proc.communicate()
-
-with open("res.txt","wb") as f:
-    f.write(out)
+os.system(cmd)
