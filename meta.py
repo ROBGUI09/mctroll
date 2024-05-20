@@ -1,5 +1,4 @@
-import subprocess
-import glob
+import glob,os
 
 ipa = glob.glob('*.ipa')[0]
 
