@@ -27,6 +27,16 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.8 #install the python needed
+#      - name: install python packages
+#        run: |
+#          pip install PyGithub pandas mistletoe lxml beautifulsou
+      - name: execute py script # run the run.py to get the latest data
+        run: |
+          python meta.py
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         with:
