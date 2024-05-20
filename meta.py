@@ -3,7 +3,9 @@ import glob
 
 ipa = glob.glob('*.ipa')[0]
 
-cmd = ['docker','run','-e',f'filename={str(ipa)}','-v','/tmp/ipas/:/home/work/files','ipax:latest']
+cmd = ['docker','run',"--rm",'-e',f'filename={str(ipa)}','-v','/tmp/ipas/:/home/work/files','ipax:latest']
+
+print(cmd)
 
 proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, shell=True)
 (out, err) = proc.communicate()
